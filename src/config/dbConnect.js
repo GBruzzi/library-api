@@ -1,6 +1,13 @@
-import mongoose  from 'mongoose';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-mongoose.connect('mongodb+srv://ggbruzzi:mkonjibhu123@cluster0.rhbk2if.mongodb.net/alura-nodelibrary');
+// Carregar as variáveis de ambiente do arquivo .env
+dotenv.config();
+
+// Acessar as variáveis de ambiente
+const mongodbUri = process.env.MONGODB_URI;
+
+mongoose.connect(mongodbUri);
 
 let db = mongoose.connection;
 
